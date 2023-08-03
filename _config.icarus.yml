@@ -3,7 +3,8 @@ version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: /img/logo.svg
+logo:
+    text: Khan's Blog
 # Page metadata configurations
 head:
     # URL or path to the website's icon
@@ -118,7 +119,7 @@ navbar:
 # Page footer configurations
 footer:
     # Copyright text
-    copyright: © 2023
+    copyright: © KHAN 2023
     # Links to be shown on the right of the footer section
     links:
         Creative Commons:
@@ -252,10 +253,7 @@ widgets:
                 url: https://facebook.com
             Twitter:
                 icon: fab fa-twitter
-                url: https://twitter.com
-            Dribbble:
-                icon: fab fa-dribbble
-                url: https://dribbble.com
+                url: https://twitter.com/imyukehan
             RSS:
                 icon: fas fa-rss
                 url: /
@@ -279,25 +277,25 @@ widgets:
         links:
             Hexo: https://hexo.io
             Bulma: https://bulma.io
-    # Categories widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: categories
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: recent_posts
+        # Categories widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: categories
     # Archives widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: archives
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: tags
         # How to order tags. For example 'name' to order by name in ascending order, and '-length' to order by number of posts in each tags in descending order
         order_by: name
@@ -306,7 +304,7 @@ widgets:
         # Whether to show tags count, i.e. number of posts in the tag.
         show_count: true
     # Google FeedBurner email subscription widget configurations
-    -
+    # -
     #     # Where should the widget be placed, left sidebar or right sidebar
     #     position: left
     #     type: subscribe_email
@@ -314,16 +312,16 @@ widgets:
     #     description: 
     #     # Feedburner ID
     #     feedburner_id: ''
-    # # Google AdSense unit configurations
+    # Google AdSense unit configurations
     # -
     #     # Where should the widget be placed, left sidebar or right sidebar
-    #     position: left
+    #     position: right
     #     type: adsense
     #     # AdSense client ID
     #     client_id: ''
     #     # AdSense AD unit ID
     #     slot_id: ''
-    # # Follow.it email subscription widget configurations
+    # Follow.it email subscription widget configurations
     # -
     #     # Where should the widget be placed, left sidebar or right sidebar
     #     position: left
