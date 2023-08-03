@@ -1,13 +1,14 @@
 ---
 title: Who does that server really serve?
 ---
-# Who does that server really serve?
 
 **Richard Stallman**
 
 > (From [GNU PHILOSOPHY](https://www.gnu.org/philosophy/who-does-that-server-really-serve.en.html).)
 
 **On the Internet, proprietary software isn't the only way to lose your freedom. Service as a Software Substitute, or SaaSS, is another way to give someone else power over your computing.**
+
+<!-- More -->
 
 The basic point is, you can have control over a program someone else wrote (if it's free), but you can never have control over a service someone else runs, so never use a service where in principle a program would do.
 

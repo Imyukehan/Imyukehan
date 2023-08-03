@@ -1,7 +1,6 @@
 ---
-title: Hello World
+title: 给SublimeText3添加zsh终端命令支持
 ---
-# 给SublimeText3添加zsh终端命令支持
 
 1. 命令行添加如下内容(如果提示~/bin文件夹不存在就新建一个)
 ```shell

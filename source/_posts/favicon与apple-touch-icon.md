@@ -1,7 +1,6 @@
 ---
 title: favicon与apple-touch-icon
 ---
-# favicon与apple-touch-icon
 
 在根目录下添加 apple-touch-icon.png 可以让safari读取作为标签图标
 ![apple-toush-icon][1]

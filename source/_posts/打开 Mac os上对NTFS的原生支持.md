@@ -1,7 +1,6 @@
 ---
 title: 打开 Mac os上对NTFS的原生支持
 ---
-# 打开 Mac os上对NTFS的原生支持
 
 NTFS (New Technology File System)，是 WindowsNT 环境的文件系统，微软设计出来用于取代老旧的FAT格式（不支持4g以上的文件读写），并且保持了微软一贯以来的商业风格，并不公开该文件系统的详细定义与实现方式，所以Mac os自然是不能支持的，用bootcamp创建windows虚拟机后，分区只能读不能写入。
 有意思的是，早在OS X 10.5的时候，苹果就加入了读写NTFS格式的原生支持，但是可能是由于版权纠纷，把这个功能给屏蔽掉了，所以完全没有必要花¥139去买NTFS for mac这个软件，只需要自己开启就好了。

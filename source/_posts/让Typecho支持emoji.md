@@ -1,7 +1,6 @@
 ---
 title: Hello World
 ---
-# 让Typecho支持emoji
 
 所谓Emoji就是一种在Unicode位于`\u1F601-\u1F64F`区段的字符。
 
