@@ -105,11 +105,11 @@ head:
 navbar:
     # Navigation menu items
     menu:
-        Home: /
-        Archives: /archives
-        Categories: /categories
-        Tags: /tags
-        About: /about
+        主页: /
+        存档: /archives
+        文章分类: /categories
+        标签: /tags
+        关于我: /about
     # Links to be shown on the right of the navigation bar
     links:
         Download on GitHub:
@@ -215,11 +215,11 @@ sidebar:
     # Left sidebar configurations
     left:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: false
+        sticky: true
     # Right sidebar configurations
     right:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: false
+        sticky: true
 # Sidebar widget configurations
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
 widgets:
@@ -229,15 +229,15 @@ widgets:
         position: left
         type: profile
         # Author name
-        author: Khan
+        author: 大只若于
         # Author title
-        author_title: Your title
+        author_title: 神圣佛德塞银河皇国青骑士
         # Author's current location
-        location: Your location
+        location: 半人马座α星
         # URL or path to the avatar image
-        avatar: 
+        avatar: /img/Sanatan.png
         # Whether show the rounded avatar image
-        avatar_rounded: false
+        avatar_rounded: true
         # Email address for the Gravatar
         gravatar: 
         # URL or path for the follow button
