@@ -23,7 +23,7 @@ head:
         theme_color: 
         # A placeholder background color for the application page to display
         # before its stylesheet is loaded
-        background_color: 
+        background_color: '#ebebeb'
         # The preferred display mode for the website
         display: standalone
         # Image files that can serve as application icons for different contexts
@@ -169,7 +169,7 @@ comment:
     type: gitalk
     client_id: d61e7044ae63a96efd93
     client_secret: 8ce63ca00359f06c319672844c9da362e19cac92
-    repo: https://github.com/Imyukehan/Imyukehan
+    repo: Imyukehan
     owner: Imyukehan
     admin:
         - Imyukehan
