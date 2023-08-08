@@ -7,11 +7,11 @@ widgets:
         # Author name
         author: 大只若于
         # Author title
-        author_title: 神圣佛德塞银河皇国青骑士
+        author_title: 宇宙社会学研究员
         # Author's current location
         location: 半人马座α星
         # URL or path to the avatar image
-        avatar: /img/Sanatan.png
+        avatar: /img/Sanatan.jpg
         # Whether show the rounded avatar image
         avatar_rounded: true
         # Email address for the Gravatar
@@ -25,7 +25,7 @@ widgets:
                 url: https://github.com/imyukehan
             Facebook:
                 icon: fab fa-facebook
-                url: https://facebook.com
+                url: https://www.facebook.com/profile.php?id=100021633186218
             Twitter:
                 icon: fab fa-twitter
                 url: https://twitter.com/imyukehan

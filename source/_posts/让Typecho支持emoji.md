@@ -1,5 +1,7 @@
 ---
 title: 让Typecho支持emoji表情
+cover: /img/assets/让Typecho支持emoji表情/count-chris-hQNFPZK8F80-unsplash.jpg
+toc: true
 ---
 
 所谓Emoji就是一种在Unicode位于`\u1F601-\u1F64F`区段的字符。
