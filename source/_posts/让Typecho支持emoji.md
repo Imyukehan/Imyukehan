@@ -2,6 +2,7 @@
 title: 让Typecho支持emoji表情
 date: 2019-08-03 14:20:01
 cover: /img/assets/让Typecho支持emoji表情/count-chris-hQNFPZK8F80-unsplash.jpg
+thumbnail: /img/assets/让Typecho支持emoji表情/count-chris-hQNFPZK8F80-unsplash.jpg
 toc: true
 ---
 
