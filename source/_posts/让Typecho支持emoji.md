@@ -9,6 +9,8 @@ toc: true
 
 在服务器根目录下查看config.ini.php可以发现typecho默认使用的是utf-8编码，而在 MySQL 中，`UTF-8`只支持最多 3 个字节，而 emoji 是 4 个字节，这个显然超过了目前常用的`UTF-8`字符集的编码范围`\u0000-\uFFFF`。
 
+<!-- more -->
+
 所以只要将默认的数据库编码更改为`utf8mb4`即可
 > 注：utf8mb4在PHP5.5后才支持
 
