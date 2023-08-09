@@ -1,6 +1,7 @@
 ---
 title: favicon与apple-touch-icon
 date: 2019-12-01 09:55:53
+cover: /img/assets/favicon与apple-touch-icon/alexander-shatov-mr4JG4SYOF8-unsplash.jpg
 toc: true
 ---
 
@@ -14,4 +15,4 @@ toc: true
 可以指定网页的小图标
 
 
-[1]: https://ws3.sinaimg.cn/large/006tNc79gy1fhjbm9tpy0j310i0h6mxu.jpg
+[1]: /img/assets/favicon与apple-touch-icon/截屏2023-08-09.jpg

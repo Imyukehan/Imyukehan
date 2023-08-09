@@ -1,5 +1,6 @@
 ---
 title: 用MathJax进行LateX公式渲染
+date: 2018-07-23 10:10:10
 cover: /img/assets/用MathJax进行LateX公式渲染/thomas-t-OPpCbAAKWv8-unsplash.jpg
 toc: true
 ---
