@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>可汗的个人小站</title>
+  
+  <subtitle>Khan&#39;s BLOG</subtitle>
+  <link href="https://blog.khan.moe/atom.xml" rel="self"/>
+  
+  <link href="https://blog.khan.moe/"/>
+  <updated>2023-08-09T02:23:36.545Z</updated>
+  <id>https://blog.khan.moe/</id>
+  
+  <author>
+    <name>Khan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>『我们』</title>
+    <link href="https://blog.khan.moe/2020/11/11/%E3%80%8E%E6%88%91%E4%BB%AC%E3%80%8F/"/>
+    <id>https://blog.khan.moe/2020/11/11/%E3%80%8E%E6%88%91%E4%BB%AC%E3%80%8F/</id>
+    <published>2020-11-11T16:30:55.000Z</published>
+    <updated>2023-08-09T02:23:36.545Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;「爱和饥饿统治着这个世界」&lt;/p&gt;
+&lt;p&gt;「夜里所有号码都必须睡觉；夜里睡觉，就像白天工作一样，都是我们的义务。夜里睡觉有利于第二天的工作。夜里不睡觉是犯罪行为」&lt;/p&gt;
+&lt;p&gt;你为什么觉得愚蠢不好呢？要是我们像教人们智慧一样费尽心机花好几个世纪时间教人愚蠢，那它没准早已成为一种非常宝贵的东西。&lt;/p&gt;
+&lt;p&gt;穿制服的号码们时不时打我身边擦过——可是我始终孤零零的一个人走着。显然，大家都被拯救了，可我却不可能得到救赎。因为我&lt;strong&gt;不想要&lt;/strong&gt;救赎……&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="读后感" scheme="https://blog.khan.moe/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+    
+    <category term="图书" scheme="https://blog.khan.moe/tags/%E5%9B%BE%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>favicon与apple-touch-icon</title>
+    <link href="https://blog.khan.moe/2019/12/01/favicon%E4%B8%8Eapple-touch-icon/"/>
+    <id>https://blog.khan.moe/2019/12/01/favicon%E4%B8%8Eapple-touch-icon/</id>
+    <published>2019-12-01T09:55:53.000Z</published>
+    <updated>2023-08-09T02:23:51.049Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在根目录下添加 apple-touch-icon.png 可以让safari读取作为标签图标&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>让Typecho支持emoji表情</title>
+    <link href="https://blog.khan.moe/2019/08/03/%E8%AE%A9Typecho%E6%94%AF%E6%8C%81emoji/"/>
+    <id>https://blog.khan.moe/2019/08/03/%E8%AE%A9Typecho%E6%94%AF%E6%8C%81emoji/</id>
+    <published>2019-08-03T14:20:01.000Z</published>
+    <updated>2023-08-09T02:22:45.273Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;所谓Emoji就是一种在Unicode位于&lt;code&gt;&#92;u1F601-&#92;u1F64F&lt;/code&gt;区段的字符。&lt;/p&gt;
+&lt;p&gt;在服务器根目录下查看config.ini.php可以发现typecho默认使用的是utf-8编码，而在 MySQL 中，&lt;code&gt;UTF-8&lt;/code&gt;只支持最多 3 个字节，而 emoji 是 4 个字节，这个显然超过了目前常用的&lt;code&gt;UTF-8&lt;/code&gt;字符集的编码范围&lt;code&gt;&#92;u0000-&#92;uFFFF&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>用MathJax进行LateX公式渲染</title>
+    <link href="https://blog.khan.moe/2018/07/23/%E7%94%A8MathJax%E8%BF%9B%E8%A1%8CLateX%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/"/>
+    <id>https://blog.khan.moe/2018/07/23/%E7%94%A8MathJax%E8%BF%9B%E8%A1%8CLateX%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93/</id>
+    <published>2018-07-23T10:10:10.000Z</published>
+    <updated>2023-08-09T02:23:49.325Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>希腊字母表</title>
+    <link href="https://blog.khan.moe/2018/06/02/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/"/>
+    <id>https://blog.khan.moe/2018/06/02/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</id>
+    <published>2018-06-02T14:20:01.000Z</published>
+    <updated>2023-08-09T02:23:46.093Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一直想找个机会把希腊字母的读法都给记下来。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>无穷大值∞的问题</title>
+    <link href="https://blog.khan.moe/2018/05/14/%E6%97%A0%E7%A9%B7%E5%A4%A7%E5%80%BC%E2%88%9E%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://blog.khan.moe/2018/05/14/%E6%97%A0%E7%A9%B7%E5%A4%A7%E5%80%BC%E2%88%9E%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2018-05-14T11:34:05.000Z</published>
+    <updated>2023-08-09T02:23:40.693Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在算法题中，经常用到∞作为值，而C／C++是没有无穷大值的，之前是模仿网上一些代码，将INF设为0x7fffffff，这是32-bit int 的最大值214748367&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>程序员技术练级攻略</title>
+    <link href="https://blog.khan.moe/2017/10/24/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%8A%80%E6%9C%AF%E7%BB%83%E7%BA%A7%E6%94%BB%E7%95%A5/"/>
+    <id>https://blog.khan.moe/2017/10/24/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%8A%80%E6%9C%AF%E7%BB%83%E7%BA%A7%E6%94%BB%E7%95%A5/</id>
+    <published>2017-10-24T16:30:43.000Z</published>
+    <updated>2023-08-09T02:22:33.501Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;月光博客6月12日发表了《&lt;a href=&quot;http://www.williamlong.info/archives/2700.html&quot;&gt;写给新手程序员的一封信&lt;/a&gt;》，翻译自《&lt;a href=&quot;http://blog.akash.im/an-open-letter-to-those-who-want-to-start&quot;&gt;An open letter to those who want to start programming&lt;/a&gt;》，我的朋友（他在本站的id是&lt;a href=&quot;http://coolshell.cn/?author=3&quot;&gt;Mailper&lt;/a&gt;）告诉我，他希望在酷壳上看到一篇更具操作性的文章。因为他也是喜欢编程和技术的家伙，于是，我让他把他的一些学习Python和Web编程的一些点滴总结一下。于是他给我发来了一些他的心得和经历，我在把他的心得做了不多的增改，并根据我的经历增加了“进阶”一节。&lt;strong&gt;这是一篇由新手和我这个老家伙根据我们的经历完成的文章&lt;/strong&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>
