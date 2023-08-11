@@ -3,6 +3,10 @@ title: favicon与apple-touch-icon
 date: 2019-12-01 09:55:53
 cover: /img/assets/favicon与apple-touch-icon/alexander-shatov-mr4JG4SYOF8-unsplash.jpg
 thumbnail: /img/assets/favicon与apple-touch-icon/alexander-shatov-mr4JG4SYOF8-unsplash.jpg
+categories: 
+- 编程
+tags:
+- 编程 web
 toc: true
 ---
 
