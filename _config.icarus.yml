@@ -219,7 +219,7 @@ comment:
 # # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
     share:
-    type: addtoany
+    type: sharejs
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
