@@ -6,7 +6,9 @@ thumbnail: /img/assets/用MathJax进行LateX公式渲染/thomas-t-OPpCbAAKWv8-un
 categories: 
 - 编程
 tags:
-- 编程 教程 LateX
+- 编程
+- 教程
+- LateX
 toc: true
 ---
 

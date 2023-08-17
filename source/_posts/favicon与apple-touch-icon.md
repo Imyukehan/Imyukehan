@@ -6,7 +6,8 @@ thumbnail: /img/assets/favicon与apple-touch-icon/alexander-shatov-mr4JG4SYOF8-u
 categories: 
 - 编程
 tags:
-- 编程 web
+- 编程
+- web
 toc: true
 ---
 

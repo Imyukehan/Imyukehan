@@ -6,7 +6,8 @@ thumbnail: /img/assets/让Typecho支持emoji表情/count-chris-hQNFPZK8F80-unspl
 categories: 
 - 教程
 tags:
-- 教程 Typecho
+- 教程
+- Typecho
 toc: true
 ---
 
