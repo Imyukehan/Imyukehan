@@ -12,6 +12,9 @@ toc: true
 
 在根目录下添加 apple-touch-icon.png 可以让safari读取作为标签图标
 
+```html
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png"/>
+```
 <!-- more -->
 
 ![apple-touch-icon][1]

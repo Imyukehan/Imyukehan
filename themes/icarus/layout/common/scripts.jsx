@@ -39,7 +39,8 @@ module.exports = class extends Component {
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
             <script src={url_for('/js/main.js')} defer></script>
             <script src={url_for('/js/custom.js')} defer={true}></script>
-            <script src={cdn('canvas-nest.js', '2.0.4', 'dist/canvas-nest.min.js')}></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
         </Fragment>;
     }
 };
