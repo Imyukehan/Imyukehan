@@ -15,7 +15,7 @@ console.log('Khan的博客...');
             // 选择 <meta name="theme-color"> 标签
             var metaTag = document.querySelector('meta[name="theme-color"]');
             // 修改 meta 标签的 content 属性
-            metaTag.setAttribute('content', '#373d48');  // 将主题颜色设置为暗色
+            metaTag.setAttribute('content', '#282c34');  // 将主题颜色设置为暗色
             VANTA.DOTS({
                 el: "#vantajs",
                 mouseControls: false,
