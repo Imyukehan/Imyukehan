@@ -252,6 +252,7 @@ widgets:
         gravatar: 
         # URL or path for the follow button
         follow_link: https://space.bilibili.com/4511780
+        follow_pic: /img/bilibili-logo-blue.png
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:

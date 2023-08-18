@@ -26,7 +26,7 @@ class Profile extends Component {
             location,
             counter,
             followLink,
-            followTitle,
+            followPic,
             socialLinks
         } = this.props;
         return <div class="card widget" data-type="profile">
@@ -74,7 +74,7 @@ class Profile extends Component {
                 </nav>
                 {followLink ? <div class="level">
                     <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">
-                        <img src="img/bilibili-logo-blue.png" alt="关注我的B站主页" width="160" height="30" />
+                        <img src={followPic} alt="关注我的B站主页" width="160" height="30" />
                     </a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
@@ -93,6 +93,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         author_title,
         location,
         follow_link,
+        follow_pic,
         social_links
     } = widget;
     const { url_for, _p, __ } = helper;
@@ -150,6 +151,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
             }
         },
         followLink: follow_link ? url_for(follow_link) : undefined,
+        followPic: url_for(follow_pic),
         followTitle: __('widget.follow'),
         socialLinks
     };
