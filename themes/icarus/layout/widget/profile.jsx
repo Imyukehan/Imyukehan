@@ -73,7 +73,9 @@ class Profile extends Component {
                     </div>
                 </nav>
                 {followLink ? <div class="level">
-                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
+                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">
+                        <img src="img/bilibili-logo-blue.png" alt="关注我的B站主页" width="160" height="30" />
+                    </a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>

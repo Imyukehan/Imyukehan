@@ -229,7 +229,7 @@ sidebar:
     # Right sidebar configurations
     right:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: true
+        sticky: false
 # Sidebar widget configurations
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
 widgets:
@@ -257,9 +257,9 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: https://github.com/imyukehan
-            Facebook:
-                icon: fab fa-facebook
-                url: https://facebook.com
+            Weibo:
+                icon: fab fa-weibo
+                url: https://weibo.com/u/2684162395
             Twitter:
                 icon: fab fa-twitter
                 url: https://twitter.com/imyukehan

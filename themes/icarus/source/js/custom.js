@@ -5,7 +5,8 @@ console.log('Khan的博客...');
      * Icarus 夜间模式 by iMaeGoo
      * https://www.imaegoo.com/
      */ 
-    var isNight = localStorage.getItem('night');
+    // 判断系统是否处于暗黑模式
+    var isNight = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var nightNav;
   
     function applyNight(value) {
