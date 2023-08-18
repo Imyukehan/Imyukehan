@@ -71,5 +71,5 @@ console.log('Khan的博客...');
     }
   
     findNightNav();
-    isNight && applyNight(isNight);
+    applyNight(isNight);
   }());
