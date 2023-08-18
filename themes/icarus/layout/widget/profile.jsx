@@ -151,7 +151,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
             }
         },
         followLink: follow_link ? url_for(follow_link) : undefined,
-        followPic: url_for(follow_pic),
+        followPic: url_for('/img/bilibili-logo-blue.svg'),
         followTitle: __('widget.follow'),
         socialLinks
     };
