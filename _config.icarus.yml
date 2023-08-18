@@ -3,7 +3,9 @@ version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: /img/logo-dark.png
+logo: 
+    light: /img/logo-dark.png
+    dark: /img/logo-light.png
 # Page metadata configurations
 head:
     # URL or path to the website's icon
@@ -112,9 +114,6 @@ navbar:
         关于我: /about
     # Links to be shown on the right of the navigation bar
     links:
-        Download on GitHub:
-            icon: fab fa-github
-            url: https://github.com/ppoffice/hexo-theme-icarus
 # Page footer configurations
 footer:
     # Copyright text

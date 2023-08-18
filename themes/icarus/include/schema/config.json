@@ -19,21 +19,20 @@
             "default": "default"
         },
         "logo": {
-            "type": [
-                "string",
-                "object"
-            ],
+            "type": "object",
             "description": "Path or URL to the website's logo",
-            "default": "/img/logo.svg",
             "properties": {
-                "text": {
+                "light": {
                     "type": "string",
-                    "description": "Text to be shown in place of the logo image"
+                    "description": "Text to be shown in place of the logo image in light mode",
+                    "default": "/img/logo.png"
+                },
+                "dark": {
+                    "type": "string",
+                    "description": "Text to be shown in place of the logo image in dark mode",
+                    "default": "/img/logo-dark.png"
                 }
-            },
-            "required": [
-                "text"
-            ]
+            }
         },
         "head": {
             "$ref": "/common/head.json"
