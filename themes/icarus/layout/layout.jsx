@@ -16,7 +16,7 @@ module.exports = class extends Component {
 
         return <html lang={language ? language.substr(0, 2) : ''}>
             <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-3-column`}>
+            <body class={`is-${columnCount}-column`}>
                 <div id="vantajs" style="position: fixed; top: 0px; left: 0px; z-index: -1; height:100%; width:100%;"></div>
                 <Navbar config={config} helper={helper} page={page} />
                 <section class="section">

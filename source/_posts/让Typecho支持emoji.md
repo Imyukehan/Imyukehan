@@ -52,7 +52,6 @@ alter table typecho_users convert to character set utf8mb4 collate utf8mb4_unico
 
 ```
 'charset'   =>  'utf8mb4', 
-
 ```
 
 然后typecho就可以使用emoji表情了。

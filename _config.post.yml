@@ -30,9 +30,9 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: https://github.com/imyukehan
-            Facebook:
-                icon: fab fa-facebook
-                url: https://www.facebook.com/profile.php?id=100021633186218
+            Weibo:
+                icon: fab fa-weibo
+                url: https://weibo.com/u/2684162395
             Twitter:
                 icon: fab fa-twitter
                 url: https://twitter.com/imyukehan
