@@ -68,6 +68,31 @@ date: 2023-08-21 08:35:25
 
 字体我的设置为 SFMono Nerd Font，在 macOS 上比较协调。
 
+最后需要修改下 Vibrancy Continued 的主题，否则左上 titleBar 哪里不会透明，看上去很怪异。
+
+```bash
+cd ~/.vscode/extensions/illixion.vscode-vibrancy-continued-1.1.11
+```
+
+对 Dark (Only Subbar).css 添加加号那一行：
+
+```css
+.monaco-workbench,
+.monaco-workbench .sidebar,
+.monaco-workbench .activitybar,
+.monaco-workbench .titlebar,
++.monaco-workbench .part>.title,
+.monaco-workbench .monaco-list-rows,
+body {
+  background: transparent !important;
+}
+
+.monaco-workbench.fullscreen {
+	background-color: #202020 !important;
+}
+```
+
+
 ## 总结
 {% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
 ⚠️注意：以下内容由ChatGPT自动生成
