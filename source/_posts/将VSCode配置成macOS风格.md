@@ -42,8 +42,8 @@ Apc Customize UI++ 插件是更简单、更自由的自定义工具，同时适�
     "workbench.preferredLightColorTheme": "Atom One Light",
     "apc.electron": {
       "titleBarStyle": "hiddenInset",
-      "backgroundColor": "rgba(255, 255, 255, 0.5)",
-      "vibrancy": "ultra-dark",
+      "backgroundColor": "rgba(123, 123, 123, 0.5)",
+      "vibrancy": "sidebar",
       "visualEffectState": "active",
       "trafficLightPosition": {
         "x": 12,
@@ -53,7 +53,7 @@ Apc Customize UI++ 插件是更简单、更自由的自定义工具，同时适�
     "apc.activityBar": {
       "position": "top",
       "size": 35,  // height when positioned at top/bottom, width in the default position
-      "itemSize": 35,
+      "itemSize": 30,
       "itemMargin": 3 // the margin between two items, defaults to `3`
     },
     "apc.statusBar": {
@@ -61,12 +61,12 @@ Apc Customize UI++ 插件是更简单、更自由的自定义工具，同时适�
     },
     "window.titleBarStyle": "native",
     "workbench.colorCustomizations": {
-      "sideBar.background": "#00000000",
-      "sideBarSectionHeader.background": "#00000000",
-      "activityBar.background": "#00000000"
+      "sideBar.background": "#61494000",
+      "sideBarSectionHeader.background": "#61494000",
+      "activityBar.background": "#61494000"
     },
-    "workbench.colorTheme": "One Dark Pro Darker",
-    "workbench.productIconTheme": "macos-modern"
+    "workbench.productIconTheme": "macos-modern",
+    "workbench.colorTheme": "Atom One Light"
 }
 ```
 
