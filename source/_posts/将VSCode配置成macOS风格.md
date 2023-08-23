@@ -21,6 +21,59 @@ date: 2023-08-21 08:35:25
 
 ![VSCode主题][1]
 
+## 新方法⚠️ 使用 Apc Customize UI++ 插件
+
+Apc Customize UI++ 插件是更简单、更自由的自定义工具，同时适配新版本（本文发布时为v1.81.1），以下为我的配置文件
+
+```javascript
+{
+    "update.mode": "manual",
+    "editor.fontFamily": "SFMono Nerd Font, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "SFMono Nerd Font",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "oneDarkPro.bold": true,
+    "workbench.preferredDarkColorTheme": "One Dark Pro",
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "Atom One Light",
+    "apc.electron": {
+      "titleBarStyle": "hiddenInset",
+      "backgroundColor": "rgba(255, 255, 255, 0.5)",
+      "vibrancy": "ultra-dark",
+      "visualEffectState": "active",
+      "trafficLightPosition": {
+        "x": 12,
+        "y": 10
+      }
+    },
+    "apc.activityBar": {
+      "position": "top",
+      "size": 35,  // height when positioned at top/bottom, width in the default position
+      "itemSize": 35,
+      "itemMargin": 3 // the margin between two items, defaults to `3`
+    },
+    "apc.statusBar": {
+      "position": "editor-bottom",
+    },
+    "window.titleBarStyle": "native",
+    "workbench.colorCustomizations": {
+      "sideBar.background": "#00000000",
+      "sideBarSectionHeader.background": "#00000000",
+      "activityBar.background": "#00000000"
+    },
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.productIconTheme": "macos-modern"
+}
+```
+
+自定义选项很丰富，同时自带打开毛玻璃背景的功能，配置后效果如下：
+
+![VSCode主题2][2]
+
 ## 注意事项
 
 想要达成以上效果，最重要的是获得内嵌的状态栏布局，可惜的是 Customize UI 无法在 VSCode 1.73 以上版本使用，GitHub 上的声明如下：
@@ -109,3 +162,4 @@ body {
 作者分享了设置示例，包括界面布局、字体、图标主题等。要注意使用 VSCode 1.73 版本，并配合相应版本的 Vibrancy Continued 插件，按照博客中的指示进行设置。
 
 [1]: /img/assets/将VSCode配置成macOS风格/截屏2023-08-21.png
+[2]: /img/assets/将VSCode配置成macOS风格/截屏2023-08-23.jpg
