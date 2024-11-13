@@ -23,51 +23,32 @@ date: 2023-08-21 08:35:25
 
 ## 新方法⚠️ 使用 Apc Customize UI++ 插件
 
-Apc Customize UI++ 插件是更简单、更自由的自定义工具，同时适配新版本（本文发布时为v1.81.1），以下为我的配置文件
+Apc Customize UI++ 插件是更简单、更自由的自定义工具，同时适配新版本（本文发布时为v1.81.1），以下为我的配置
 
 ```javascript
-{
-    "update.mode": "manual",
-    "editor.fontFamily": "SFMono Nerd Font, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "editor.minimap.enabled": false,
-    "terminal.integrated.fontSize": 16,
-    "terminal.integrated.fontFamily": "SFMono Nerd Font",
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "oneDarkPro.bold": true,
-    "workbench.preferredDarkColorTheme": "One Dark Pro",
-    "window.autoDetectColorScheme": true,
-    "workbench.preferredLightColorTheme": "Atom One Light",
+  {
+    "window.titleBarStyle": "native",
     "apc.electron": {
-      "titleBarStyle": "hiddenInset",
-      "backgroundColor": "rgba(123, 123, 123, 0.5)",
-      "vibrancy": "sidebar",
-      "visualEffectState": "active",
-      "trafficLightPosition": {
-        "x": 12,
-        "y": 10
-      }
-    },
-    "apc.activityBar": {
-      "position": "top",
-      "size": 35,  // height when positioned at top/bottom, width in the default position
-      "itemSize": 30,
-      "itemMargin": 3 // the margin between two items, defaults to `3`
+        "titleBarStyle": "hiddenInset",
+        "backgroundColor": "#0000004f",
+        "vibrancy": "sidebar",
+        "visualEffectState": "active",
+        "trafficLightPosition": {
+            "x": 10,
+            "y": 10
+        }
     },
     "apc.statusBar": {
-      "position": "editor-bottom",
+        "position": "editor-bottom",
     },
-    "window.titleBarStyle": "native",
-    "workbench.colorCustomizations": {
-      "sideBar.background": "#61494000",
-      "sideBarSectionHeader.background": "#61494000",
-      "activityBar.background": "#61494000"
+    "apc.stylesheet": {
+        ".mac .sidebar .composite-bar-container": "padding-left: 70px",
+        ".mac .inline-titlebar-placeholder": "padding-left: 0 !important",
+        ".sidebar, .composite.title, .sideBarSectionHeader, .monaco-list-rows, .activitybar": {
+            "background-color": "transparent !important",
+        },
     },
-    "workbench.productIconTheme": "macos-modern",
-    "workbench.colorTheme": "Atom One Light"
-}
+  }
 ```
 
 自定义选项很丰富，同时自带打开毛玻璃背景的功能，配置后效果如下：
