@@ -24,13 +24,13 @@
             "properties": {
                 "light": {
                     "type": "string",
-                    "description": "Text to be shown in place of the logo image in light mode",
-                    "default": "/img/logo.png"
+                    "description": "Logo used in light mode",
+                    "default": "/img/logo-dark.png"
                 },
                 "dark": {
                     "type": "string",
-                    "description": "Text to be shown in place of the logo image in dark mode",
-                    "default": "/img/logo-dark.png"
+                    "description": "Logo used in dark mode",
+                    "default": "/img/logo-light.png"
                 }
             }
         },

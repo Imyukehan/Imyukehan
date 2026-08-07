@@ -24,7 +24,7 @@ widgets:
         gravatar: 
         # URL or path for the follow button
         follow_link: https://github.com/imyukehan
-        follow_pic: /img/bilibili-logo-blue.png
+        follow_pic: /img/bilibili-logo-blue.svg
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
@@ -43,4 +43,4 @@ widgets:
     -
         # Where should the widget be placed, left sidebar or right sidebar
         position: left
-        type: recent_posts    
+        type: recent_posts

@@ -69,7 +69,7 @@ class Navbar extends Component {
                         {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
                             <i class="fas fa-list-ul"></i>
                         </a> : null}
-                        <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                        <a class="navbar-item night" id="night-nav" title="切换深色模式" href="javascript:;">
                             <i class="fas fa-moon" id="night-icon"></i>
                         </a>
                         {showSearch ? <a class="navbar-item search" title={searchTitle} href="javascript:;">
@@ -87,8 +87,8 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
     const { url_for, _p, __ } = helper;
     const { logo, title, navbar, widgets, search } = config;
 
-    const logoLight = logo instanceof String ? logo : logo.light
-    const logoDark = logo instanceof String ? logo : logo.dark
+    const logoLight = logo && typeof logo === 'object' ? logo.light : logo;
+    const logoDark = logo && typeof logo === 'object' ? logo.dark : logo;
 
     const hasTocWidget = Array.isArray(widgets) && widgets.find(widget => widget.type === 'toc');
     const showToc = (config.toc === true || page.toc) && hasTocWidget && ['page', 'post'].includes(page.layout);

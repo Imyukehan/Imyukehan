@@ -71,8 +71,8 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
     const { url_for, _p, date } = helper;
     const { logo, title, author, footer, plugins } = config;
 
-    const logoLight = logo instanceof String ? logo : logo.light;
-    const logoDark = logo instanceof String ? logo : logo.dark;
+    const logoLight = logo && typeof logo === 'object' ? logo.light : logo;
+    const logoDark = logo && typeof logo === 'object' ? logo.dark : logo;
 
     const links = {};
     if (footer && footer.links) {

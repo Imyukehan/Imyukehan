@@ -123,12 +123,12 @@ footer:
         Creative Commons:
             icon: fab fa-creative-commons
             url: https://creativecommons.org/
-        Attribution 4.0 International:
+        Attribution-NonCommercial 4.0 International:
             icon: fab fa-creative-commons-by
-            url: https://creativecommons.org/licenses/by/4.0/
-        Download on GitHub:
+            url: https://creativecommons.org/licenses/by-nc/4.0/
+        GitHub:
             icon: fab fa-github
-            url: https://github.com/ppoffice/hexo-theme-icarus
+            url: https://github.com/Imyukehan/Imyukehan
 # Article related configurations
 article:
     # Code highlight settings
@@ -161,24 +161,9 @@ search:
     type: insight
     # Whether to include pages in the search results
     index_pages: true
-# Comment plugin configurations
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
-comment:
-    type: gitalk
-    client_id: d61e7044ae63a96efd93
-    client_secret: 8ce63ca00359f06c319672844c9da362e19cac92
-    repo: Imyukehan
-    owner: Imyukehan
-    admin:
-        - Imyukehan
-    per_page: 20                    # 可选填
-    distraction_free_mode: false    # 可选填
-    pager_direction: last           # 可选填
-    create_issue_manually: false    # 可选填
-    proxy:                          # 可选填
-    flip_move_options:              # 可选填
-    enable_hotkey: true             # 可选填
-    language: zh-CN                 # 可选填
+# Comments are temporarily disabled. The previous Gitalk configuration
+# exposed an OAuth credential in the public repository. A GitHub Discussions
+# based replacement can be enabled after its repository/category IDs are set.
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 # donates:
@@ -217,7 +202,6 @@ comment:
 # # Share plugin configurations
 # # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
-    share:
     type: sharejs
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
@@ -252,7 +236,7 @@ widgets:
         gravatar: 
         # URL or path for the follow button
         follow_link: https://space.bilibili.com/4511780
-        follow_pic: /img/bilibili-logo-blue.png
+        follow_pic: /img/bilibili-logo-blue.svg
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:
@@ -369,19 +353,6 @@ plugins:
         id: 
         # CNZZ website id
         web_id: 
-    # Alerting users about the use of cookies
-    # https://www.osano.com/cookieconsent/
-    cookie_consent:
-        # The compliance type. Can be "info", "opt-in", or "opt-out"
-        type: info
-        # Theme of the popup. Can be "block", "edgeless", or "classic"
-        theme: edgeless
-        # Whether the popup should stay static regardless of the page scrolls
-        static: false
-        # Where on the screen the consent popup should display
-        position: bottom-left
-        # URL to your site's cookie policy
-        policyLink: https://www.cookiesandyou.com/
     # Enable the lightGallery and Justified Gallery plugins
     gallery: true
     # Google Analytics plugin settings
@@ -396,7 +367,7 @@ plugins:
         site_id: 
     # Enable the KaTeX math typesetting support
     # https://katex.org/
-    katex: true
+    katex: false
     # Enable the MathJax math typesetting support
     # https://www.mathjax.org/
     mathjax: true

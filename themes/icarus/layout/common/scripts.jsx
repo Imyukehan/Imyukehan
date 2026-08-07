@@ -1,5 +1,5 @@
 const { Component, Fragment } = require('inferno');
-const { toMomentLocale } = require('hexo/lib/plugins/helper/date');
+const { toMomentLocale } = require('hexo/dist/plugins/helper/date');
 const Plugins = require('./plugins');
 
 module.exports = class extends Component {
@@ -35,10 +35,10 @@ module.exports = class extends Component {
             {clipboard && <script src={cdn('clipboard', '2.0.4', 'dist/clipboard.min.js')} defer></script>}
             <script dangerouslySetInnerHTML={{ __html: `moment.locale("${language}");` }}></script>
             <script dangerouslySetInnerHTML={{ __html: embeddedConfig }}></script>
-            <script src={url_for('/js/column.js')}></script>
+            <script data-pjax src={url_for('/js/column.js')}></script>
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
-            <script src={url_for('/js/main.js')} defer></script>
-            <script src={url_for('/js/custom.js')} defer={true}></script>
+            <script data-pjax src={url_for('/js/main.js')} defer></script>
+            <script src={url_for('/js/custom.js')} defer></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
         </Fragment>;
