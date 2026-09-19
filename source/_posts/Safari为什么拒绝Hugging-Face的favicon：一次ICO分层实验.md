@@ -89,10 +89,6 @@ Hugging Face 当前的 [官方 favicon](https://huggingface.co/favicon.ico) 是�
 
 重新打开 Safari 后，Hugging Face 首页的 favicon 出现了，刷新后仍然保留。继续访问 `/models`，图标也正常显示，Safari 还自动给这个页面建立了映射。数据库里已经没有 Hugging Face 的拒绝记录。
 
-到这里，当前故障算是修好了。它也让我把几件容易混在一起的事彻底拆开：Touch Icon 正常不代表 favicon 正常；文件下载成功不代表 Safari 会解码采用；DOM 里插入了图标链接，也不代表 Safari 会动态更新标签页。
-
-至于这个修复能维持多久，我还不知道。Safari 可能在未来重新抓取官方 ICO，也可能在系统更新后改变缓存格式。现在我保留了数据库备份和那份三层兼容 ICO；如果图标再次消失，至少不必从“清缓存试试”重新开始。
-
 ## 9 月 19 日：X 的图片没坏，新页面却关联不上
 
 Hugging Face 恢复以后，我又遇到了 X 的图标问题。已有首页能显示 X，新打开的推文却是默认地球图标。我起初以为是推文详情页的特殊行为，但给首页加一个新的查询参数，Safari 同样无法给这个新 URL 关联图标。
@@ -110,7 +106,7 @@ Hugging Face 恢复以后，我又遇到了 X 的图标问题。已有首页能�
 | 第二个新页面继续引用这个带参数的 URL | 正常显示，复用同一条图标记录 |
 | 引用 X 根目录的 favicon URL | 正常显示，自动建立映射 |
 
-失败跟着原图标 URL 来到了最小页面，已经不需要推文内容或 X 的页面路由参与。实验也没有给出归因于 Surge 的证据。带查询参数的办法只在静态 HTML 对照里验证过，我没有把它当成已经可用的 X 用户脚本修复。
+失败跟着原图标 URL 来到了最小页面，已经不需要推文内容或 X 的页面路由参与。
 
 ## 清掉拒绝记录，还差一步
 
@@ -129,16 +125,14 @@ Hugging Face 恢复以后，我又遇到了 X 的图标问题。已有首页能�
 
 这让我更倾向于把问题理解为：共享图标记录过期后，重新验证路径与拒绝状态一起影响了新页面关联。这是根据对照作出的推断；Safari 内部具体在哪一步失败、多久算过期，我还没有查明。
 
-## 在其他 Mac 上复现这次修复
+## 修复过程
 
-这组 SQL 适用于本机已经有完整 X 图标缓存、表结构也与实验一致的情况。先用 ⌘Q 正常退出 Safari，确认进程已经退出，再打开缓存数据库。不要在 Safari 运行时写它。
+这组 SQL 适用于本机已经有完整 X 图标缓存、表结构也与实验一致的情况。先用 ⌘Q 正常退出 Safari，确认进程已经退出，再打开缓存数据库。
 
 ```sh
 pgrep -x Safari
 sqlite3 -bail "$HOME/Library/Safari/Favicon Cache/favicons.db"
 ```
-
-第一条还有进程输出时，先停在这里。数据库路径必须已经存在；否则不要运行第二条，以免 SQLite 创建一个空库。
 
 进入 SQLite 后，先备份再检查。下面的备份文件名是示例，选一个尚不存在的名字，保存在自己知道的位置；`.backup` 会保存当前逻辑数据库，包括 WAL 中的数据。
 
@@ -151,7 +145,7 @@ SELECT * FROM icon_info
 WHERE url = 'https://abs.twimg.com/favicons/twitter.3.ico';
 ```
 
-确认 `quick_check` 为 `ok`，`icon_info` 有 `url`、`timestamp` 字段，`rejected_resources` 有 `icon_url` 字段，并且精确 URL 对应的现存图标记录符合预期。还要检查这条记录引用的缓存图片：本次 Safari 使用 UUID 字符串的大写 MD5 作为 `favicons` 子目录中的文件名，图片应存在且能解码。只看见数据库行不够；如果文件已丢失或损坏，下面的时间戳更新不能补回图片。UUID 和文件都应取自自己的 Mac。
+确认 `quick_check` 为 `ok`，`icon_info` 有 `url`、`timestamp` 字段，`rejected_resources` 有 `icon_url` 字段，并且精确 URL 对应的现存图标记录符合预期。还要检查这条记录引用的缓存图片：本次 Safari 使用 UUID 字符串的大写 MD5 作为 `favicons` 子目录中的文件名，图片应存在且能解码。只看见数据库行不够；如果文件已丢失或损坏，下面的时间戳更新不能补回图片。
 
 检查通过后，在同一个 SQLite 会话运行：
 
@@ -186,22 +180,3 @@ WHERE icon_url = 'https://abs.twimg.com/favicons/twitter.3.ico';
 
 这次操作只触及精确图标 URL 的时间戳和拒绝记录，不需要复制别人的 UUID、图片或整份数据库。我的两个新页面目前都通过了验证；是否长期不再复发，还要继续观察。
 
-## 可下载的定向修复脚本
-
-我把上述操作整理成了 [repair_x_favicon.py](/img/assets/Safari为什么拒绝Hugging-Face的favicon：一次ICO分层实验/repair_x_favicon.py)，方便在其他 Mac 上检查。它只依赖 Python 3 标准库和 macOS 自带工具。将文件保存到下载目录后，先运行默认检查：
-
-```sh
-python3 ~/Downloads/repair_x_favicon.py
-```
-
-默认不会修改数据库。脚本会核对表结构、精确图标 URL 的唯一记录，以及现存图片能否被系统读取。检查通过后，用 ⌘Q 退出 Safari，再运行：
-
-```sh
-python3 ~/Downloads/repair_x_favicon.py --apply
-```
-
-它先完整备份 SQLite 数据库，再更新时间并清除匹配拒绝记录，保留图片、UUID 和已有页面映射。备份默认存放在 `~/Downloads/Safari-favicon-backups/`，终端会打印本次备份目录及 `--undo` 撤销命令。撤销也要求退出 Safari，只恢复这次修改前的时间戳和删除的拒绝行，保留后来新增的页面映射；目标记录再次变化时会停止自动撤销。
-
-备份数据库和 `changes.json` 含本机浏览相关网址，应留在本地。不要把这些文件随脚本发给别人。如果终端报 `Operation not permitted`，需要在系统设置的“隐私与安全性 → 完全磁盘访问权限”中允许该终端访问，然后重新启动终端。图片缺失、记录不唯一或表结构不同，则需要重新诊断。
-
-脚本已在合成数据库上测试修复、其他记录保持不变、撤销和缺图停止，在这台 Mac 的真实数据库上只做过默认检查。前面描述的界面修复来自实际实验，可移植脚本还没有在另一台 Mac 上完成显示验证。运行后仍应打开一个此前未关联的新 X 页面，确认图标出现。
