@@ -1,6 +1,7 @@
 ---
 title: Safari 为什么拒绝 Hugging Face 的 favicon：一次 ICO 分层实验
 date: 2026-09-16 09:10:00
+updated: 2026-09-19 11:00:00
 cover: /img/assets/Safari为什么拒绝Hugging-Face的favicon：一次ICO分层实验/cover.png
 thumbnail: /img/assets/Safari为什么拒绝Hugging-Face的favicon：一次ICO分层实验/cover.png
 categories:
@@ -19,6 +20,8 @@ Hugging Face 的 favicon 在 Chrome 里一直正常，到了 Safari 却只剩下
 这次的问题和我之前处理过的 [Safari Touch Icon](/2026/09/07/Safari收藏图标又消失了：一次Touch-Icon排查和自定义实践/) 不是一回事。Touch Icon 缓存里，Hugging Face 已经有一张下载成功的 128×128 PNG；真正出问题的是 `Favicon Cache`，官方 ICO 只留下了一条拒绝记录。
 
 我原本只想把那个黄色小脸找回来，最后却做成了一次 ICO 分层实验。
+
+9 月 19 日补记：后来我又查了 X.com 上“旧页面有图标，新页面没有”的问题。这次图片本身正常，最终通过刷新共享图标记录的时间戳并清除对应拒绝状态恢复了。实验和可复现 SQL 放在本文后半部分。
 
 <!-- more -->
 
@@ -89,3 +92,96 @@ Hugging Face 当前的 [官方 favicon](https://huggingface.co/favicon.ico) 是�
 到这里，当前故障算是修好了。它也让我把几件容易混在一起的事彻底拆开：Touch Icon 正常不代表 favicon 正常；文件下载成功不代表 Safari 会解码采用；DOM 里插入了图标链接，也不代表 Safari 会动态更新标签页。
 
 至于这个修复能维持多久，我还不知道。Safari 可能在未来重新抓取官方 ICO，也可能在系统更新后改变缓存格式。现在我保留了数据库备份和那份三层兼容 ICO；如果图标再次消失，至少不必从“清缓存试试”重新开始。
+
+## 9 月 19 日：X 的图片没坏，新页面却关联不上
+
+Hugging Face 恢复以后，我又遇到了 X 的图标问题。已有首页能显示 X，新打开的推文却是默认地球图标。我起初以为是推文详情页的特殊行为，但给首页加一个新的查询参数，Safari 同样无法给这个新 URL 关联图标。
+
+这轮观察到的 Safari 版本是 27.2。页面使用的共享图标地址是 [twitter.3.ico](https://abs.twimg.com/favicons/twitter.3.ico)。虽然扩展名是 `.ico`，实际响应却是 549 字节的 32×32 PNG，和 [x.com/favicon.ico](https://x.com/favicon.ico) 的内容完全相同。Safari 自己生成的缓存文件是 16/32px 的 ICO 表示，几份成功与失败记录对应的图片字节也一致。
+
+所以不能把 Hugging Face 的多图 ICO 结论搬过来。X 的原图可以正常使用，旧页面也确实还在显示它，异常发生在新页面取得这条共享图标的过程中。
+
+我用最小 HTML 做了对照，只改变图标 URL：
+
+| 对照 | 图标显示与页面关联 |
+|---|---|
+| 引用原 CDN 图标 URL | 默认图标，没有新映射 |
+| 同一个图标 URL 加查询参数 | 立即显示 X，自动建立映射 |
+| 第二个新页面继续引用这个带参数的 URL | 正常显示，复用同一条图标记录 |
+| 引用 X 根目录的 favicon URL | 正常显示，自动建立映射 |
+
+失败跟着原图标 URL 来到了最小页面，已经不需要推文内容或 X 的页面路由参与。实验也没有给出归因于 Surge 的证据。带查询参数的办法只在静态 HTML 对照里验证过，我没有把它当成已经可用的 X 用户脚本修复。
+
+## 清掉拒绝记录，还差一步
+
+最初那些失败页面甚至没有各自的拒绝行。后续修复实验中，共享图标 URL 才产生了拒绝记录；只盯着某条推文的 URL 查缓存，很容易漏掉这一层。
+
+我先试过重启，也试过重建共享记录。中间有一次恢复旧记录后仍然失败，但后来发现 Safari 已经回收了那张暂时失去引用的旧图片。那次同时改变了记录和文件是否存在，不能拿来单独证明时间戳有问题。
+
+于是我从备份恢复原图片，核对原 UUID、原时间戳和文件 SHA-256，再做对照：
+
+| 保持完整原图与原 UUID | 结果 |
+|---|---|
+| 保留旧时间戳，只清除该图标 URL 的拒绝记录 | 新推文仍没有映射，并再次生成拒绝记录 |
+| 只将时间戳更新为当前值，再清除该图标 URL 的拒绝记录 | 新推文显示 X，Safari 自动创建映射 |
+
+随后我又打开第二条此前没有关联过的新推文，界面上也出现了 X，数据库里多出了自动映射。最终该共享图标 URL 的拒绝行数为零。修复保留了原 UUID、原图片字节和已有 `page_url` 映射，没有逐条添加推文地址。
+
+这让我更倾向于把问题理解为：共享图标记录过期后，重新验证路径与拒绝状态一起影响了新页面关联。这是根据对照作出的推断；Safari 内部具体在哪一步失败、多久算过期，我还没有查明。
+
+## 在其他 Mac 上复现这次修复
+
+这组 SQL 适用于本机已经有完整 X 图标缓存、表结构也与实验一致的情况。先用 ⌘Q 正常退出 Safari，确认进程已经退出，再打开缓存数据库。不要在 Safari 运行时写它。
+
+```sh
+pgrep -x Safari
+sqlite3 -bail "$HOME/Library/Safari/Favicon Cache/favicons.db"
+```
+
+第一条还有进程输出时，先停在这里。数据库路径必须已经存在；否则不要运行第二条，以免 SQLite 创建一个空库。
+
+进入 SQLite 后，先备份再检查。下面的备份文件名是示例，选一个尚不存在的名字，保存在自己知道的位置；`.backup` 会保存当前逻辑数据库，包括 WAL 中的数据。
+
+```sql
+.backup 'favicons-before-x-refresh-20260919.db'
+PRAGMA quick_check;
+PRAGMA table_info(icon_info);
+PRAGMA table_info(rejected_resources);
+SELECT * FROM icon_info
+WHERE url = 'https://abs.twimg.com/favicons/twitter.3.ico';
+```
+
+确认 `quick_check` 为 `ok`，`icon_info` 有 `url`、`timestamp` 字段，`rejected_resources` 有 `icon_url` 字段，并且精确 URL 对应的现存图标记录符合预期。还要检查这条记录引用的缓存图片：本次 Safari 使用 UUID 字符串的大写 MD5 作为 `favicons` 子目录中的文件名，图片应存在且能解码。只看见数据库行不够；如果文件已丢失或损坏，下面的时间戳更新不能补回图片。UUID 和文件都应取自自己的 Mac。
+
+检查通过后，在同一个 SQLite 会话运行：
+
+```sql
+BEGIN IMMEDIATE;
+
+UPDATE icon_info
+SET timestamp = CAST(strftime('%s','now') AS INTEGER)-978307200
+WHERE url = 'https://abs.twimg.com/favicons/twitter.3.ico';
+
+SELECT changes() AS updated_icon_rows;
+
+DELETE FROM rejected_resources
+WHERE icon_url = 'https://abs.twimg.com/favicons/twitter.3.ico';
+
+SELECT changes() AS removed_rejection_rows;
+```
+
+先核对更新行数与刚才查到的目标记录数一致，再执行 `COMMIT;`；如果不符合预期，执行 `ROLLBACK;`。这里的 `978307200` 是 Unix 1970 年纪元到 Apple 2001 年纪元的秒数差，不能直接把 Unix 时间写进去。
+
+提交后检查并退出：
+
+```sql
+PRAGMA quick_check;
+SELECT COUNT(*) AS remaining_rejections
+FROM rejected_resources
+WHERE icon_url = 'https://abs.twimg.com/favicons/twitter.3.ico';
+.quit
+```
+
+重新启动 Safari，访问此前没关联过图标的 X 页面，看图标是否出现，再检查 Safari 有没有自动写入 `page_url`。这才是本次修复的验收点。已有页面原本就能显示，单看它刷新成功不能说明新页面的问题已解决。
+
+这次操作只触及精确图标 URL 的时间戳和拒绝记录，不需要复制别人的 UUID、图片或整份数据库。我的两个新页面目前都通过了验证；是否长期不再复发，还要继续观察。
