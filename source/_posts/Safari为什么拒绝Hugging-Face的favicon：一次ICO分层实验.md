@@ -185,3 +185,23 @@ WHERE icon_url = 'https://abs.twimg.com/favicons/twitter.3.ico';
 重新启动 Safari，访问此前没关联过图标的 X 页面，看图标是否出现，再检查 Safari 有没有自动写入 `page_url`。这才是本次修复的验收点。已有页面原本就能显示，单看它刷新成功不能说明新页面的问题已解决。
 
 这次操作只触及精确图标 URL 的时间戳和拒绝记录，不需要复制别人的 UUID、图片或整份数据库。我的两个新页面目前都通过了验证；是否长期不再复发，还要继续观察。
+
+## 可下载的定向修复脚本
+
+我把上述操作整理成了 [repair_x_favicon.py](/img/assets/Safari为什么拒绝Hugging-Face的favicon：一次ICO分层实验/repair_x_favicon.py)，方便在其他 Mac 上检查。它只依赖 Python 3 标准库和 macOS 自带工具。将文件保存到下载目录后，先运行默认检查：
+
+```sh
+python3 ~/Downloads/repair_x_favicon.py
+```
+
+默认不会修改数据库。脚本会核对表结构、精确图标 URL 的唯一记录，以及现存图片能否被系统读取。检查通过后，用 ⌘Q 退出 Safari，再运行：
+
+```sh
+python3 ~/Downloads/repair_x_favicon.py --apply
+```
+
+它先完整备份 SQLite 数据库，再更新时间并清除匹配拒绝记录，保留图片、UUID 和已有页面映射。备份默认存放在 `~/Downloads/Safari-favicon-backups/`，终端会打印本次备份目录及 `--undo` 撤销命令。撤销也要求退出 Safari，只恢复这次修改前的时间戳和删除的拒绝行，保留后来新增的页面映射；目标记录再次变化时会停止自动撤销。
+
+备份数据库和 `changes.json` 含本机浏览相关网址，应留在本地。不要把这些文件随脚本发给别人。如果终端报 `Operation not permitted`，需要在系统设置的“隐私与安全性 → 完全磁盘访问权限”中允许该终端访问，然后重新启动终端。图片缺失、记录不唯一或表结构不同，则需要重新诊断。
+
+脚本已在合成数据库上测试修复、其他记录保持不变、撤销和缺图停止，在这台 Mac 的真实数据库上只做过默认检查。前面描述的界面修复来自实际实验，可移植脚本还没有在另一台 Mac 上完成显示验证。运行后仍应打开一个此前未关联的新 X 页面，确认图标出现。
