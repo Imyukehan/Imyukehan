@@ -1,5 +1,5 @@
 ---
-title: Seedance 2.5 视频延长怎么算钱：从黑屏省钱到同价上下文
+title: Seedance 2.5 视频延长怎么计费：从黑屏省钱到同价上下文
 date: 2026-09-22 21:15:00
 cover: /img/assets/seedance-2-5-extension-pricing/cover.png
 thumbnail: /img/assets/seedance-2-5-extension-pricing/cover.png
