@@ -6,11 +6,7 @@ thumbnail: /img/assets/zipcrypto-password-recovery/cover.png
 categories:
 - 折腾
 tags:
-- ZIP
-- ZipCrypto
-- 密码恢复
-- Apple Silicon
-- 性能优化
+- 编程
 toc: true
 ---
 

@@ -8,7 +8,6 @@ categories:
 tags:
 - 编程
 - 教程
-- LateX
 toc: true
 ---
 

@@ -8,10 +8,6 @@ categories:
 - 折腾
 tags:
 - macOS
-- Safari
-- favicon
-- ICO
-- SQLite
 toc: true
 ---
 

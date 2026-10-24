@@ -8,7 +8,6 @@ categories:
 - 编程
 tags:
 - AI
-- Vibe Coding
 - 编程
 toc: true
 ---

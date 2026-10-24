@@ -6,10 +6,7 @@ thumbnail: /img/assets/seedance-2-5-extension-pricing/cover.png
 categories:
 - 折腾
 tags:
-- AIGC
-- Seedance
-- 视频生成
-- API
+- AI
 toc: true
 ---
 

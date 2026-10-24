@@ -1,14 +1,13 @@
 ---
 title: Qwen Image 2.1 版本探索与 MOSS Image 实测：我的 M1 Max 最后留下了谁
 date: 2026-10-18 15:00:00
+cover: /img/assets/qwen-moss-m1-max/cover.jpg
+thumbnail: /img/assets/qwen-moss-m1-max/cover.jpg
 categories:
 - 折腾
 tags:
-- AIGC
-- Qwen Image
-- MOSS Image
-- Apple Silicon
-- MLX
+- AI
+- macOS
 toc: true
 ---
 

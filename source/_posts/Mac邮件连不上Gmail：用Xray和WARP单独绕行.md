@@ -7,10 +7,7 @@ categories:
 - 折腾
 tags:
 - macOS
-- Gmail
-- Xray
-- WARP
-- VPS
+- 网络
 toc: true
 ---
 

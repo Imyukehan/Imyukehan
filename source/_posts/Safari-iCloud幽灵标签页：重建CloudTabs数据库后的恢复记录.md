@@ -7,10 +7,6 @@ categories:
 - 折腾
 tags:
 - macOS
-- Safari
-- iCloud
-- SQLite
-- 同步
 toc: true
 ---
 

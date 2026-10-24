@@ -7,7 +7,6 @@ categories:
 - 教程
 tags:
 - 教程
-- Typecho
 toc: true
 ---
 

@@ -6,11 +6,8 @@ thumbnail: /img/assets/M1-Max本地跑MiniMax-H3和Music-3：从观望到删掉5
 categories:
 - 折腾
 tags:
+- AI
 - macOS
-- Apple Silicon
-- MLX
-- MiniMax
-- 本地 AI
 toc: true
 ---
 

@@ -7,10 +7,6 @@ categories:
 - 折腾
 tags:
 - macOS
-- Safari
-- Touch Icon
-- SQLite
-- 图标
 toc: true
 ---
 

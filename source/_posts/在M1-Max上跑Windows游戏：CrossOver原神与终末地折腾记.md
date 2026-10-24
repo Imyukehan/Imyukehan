@@ -7,9 +7,7 @@ categories:
 - 折腾
 tags:
 - macOS
-- CrossOver
 - 游戏
-- Wine
 toc: true
 ---
 
